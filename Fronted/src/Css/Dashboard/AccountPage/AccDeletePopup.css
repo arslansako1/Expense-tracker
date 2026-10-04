@@ -1,0 +1,100 @@
+
+.delete-dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 36px 32px 32px 32px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    background: white;
+    margin: auto;
+    text-align: center;
+}
+
+.delete-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.delete-dialog::before {
+    content: "⚠️";
+    display: block;
+    font-size: 48px;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.delete-no {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.delete-no:hover {
+    background: #F3F4F6;
+    color: #EF4444;
+}
+
+.delete-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+}
+
+.delete-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    background: #F3F4F6;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin: 0 0 24px 0;
+    word-break: break-word;
+}
+
+.delete-yes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    width: 100%;
+}
+
+.delete-yes:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+    background: #DC2626;
+}
+
+.delete-yes:active {
+    transform: translateY(0);
+}
+
+.delete-yes:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

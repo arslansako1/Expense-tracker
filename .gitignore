@@ -1,0 +1,51 @@
+# ============================================
+# .NET / Backend
+# ============================================
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.dll
+*.pdb
+
+# ============================================
+# Node / Frontend
+# ============================================
+node_modules/
+dist/
+build/
+.vite/
+npm-debug.log*
+yarn-error.log*
+
+# ============================================
+# Environment / Secrets
+# ============================================
+.env
+.env.local
+.env.*.local
+appsettings.Development.json
+appsettings.Production.json
+
+# ============================================
+# IDE / Editor
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ============================================
+# Build / Test artifacts
+# ============================================
+TestResults/
+*.trx
+*.log
+
+# ============================================
+# Docker
+# ============================================
+# (Docker images are not files — nothing to ignore here)

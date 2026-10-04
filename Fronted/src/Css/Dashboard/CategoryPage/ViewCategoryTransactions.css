@@ -1,0 +1,164 @@
+
+
+.viewCategoryTransactions-dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    background: white;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.viewCategoryTransactions-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.create-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+    z-index: 1;
+}
+
+.create-close-btn:hover {
+    background: #F3F4F6;
+    color: #EF4444;
+}
+
+
+.allTransactionName {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 12px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #F3F4F6;
+    padding-right: 40px;
+}
+
+.incomeExpense {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #4B5563;
+    margin: 0 0 8px 0;
+    padding: 10px 14px;
+    background: #F9FAFB;
+    border-radius: 10px;
+}
+
+.totalTransactions {
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7280;
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+.amount-above,
+.type-above,
+.description-above {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #6B7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    padding: 0 0 8px 0;
+}
+
+.amount-above {
+    width: 25%;
+    text-align: left;
+}
+
+.type-above {
+    width: 25%;
+    text-align: left;
+}
+
+.description-above {
+    width: 45%;
+    text-align: left;
+}
+
+.amount-above,
+.type-above,
+.description-above {
+    border-bottom: 2px solid #E5E7EB;
+}
+
+
+.viewCategoryTransactions-dialog > div {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #F3F4F6;
+    transition: background 0.2s ease;
+}
+
+.viewCategoryTransactions-dialog > div:hover {
+    background: #F9FAFB;
+    border-radius: 6px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.amount-bottom {
+    width: 25%;
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0;
+    position: relative;
+}
+
+.type-bottom {
+    width: 25%;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7280;
+    margin: 0;
+    position: relative;
+    right: 2px;
+}
+
+.type-bottom.income {
+    color: #10B981;
+}
+
+.type-bottom.expense {
+    color: #EF4444;
+}
+
+.description-bottom {
+    width: 45%;
+    font-size: 15px;
+    font-weight: 500;
+    color: #4B5563;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

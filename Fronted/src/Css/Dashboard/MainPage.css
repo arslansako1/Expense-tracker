@@ -1,0 +1,306 @@
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #F9FAFB;
+}
+.mainPage-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  background: white;
+  border-bottom: 1px solid #E5E7EB;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-btn {
+  padding: 8px 14px;
+  background: transparent;
+  color: #6B7280;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.header-btn:hover {
+  background: #F3F4F6;
+  color: #4F46E5;
+  border-color: #E5E7EB;
+}
+
+.header-bank {
+  padding: 8px 16px;
+  background: #4F46E5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+  margin-left: 8px;
+}
+
+.header-bank:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+
+.pagge-content {
+  padding: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nettWorth {
+  background: #4F46E5;
+  color: white;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 40px;
+  border-radius: 20px;
+  margin: 0;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(79, 70, 229, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.nettWorth::before {
+  content: 'TOTAL NET WORTH';
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.accountts-link,
+.transactionns-link,
+.transferrs-link,
+.categorries-link,
+.budgetts-link,
+.autoPaymentts-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.accountts-square,
+.transacionns-square,
+.transferrs-square,
+.categorries-square,
+.budgetts-square,
+.autoPaymentts-square {
+  background: white;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  border: 1px solid #E5E7EB;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.accountts-link:hover .accountts-square,
+.transactionns-link:hover .transacionns-square,
+.transferrs-link:hover .transferrs-square,
+.categorries-link:hover .categorries-square,
+.budgetts-link:hover .budgetts-square,
+.autoPaymentts-link:hover .autoPaymentts-square {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #4F46E5;
+}
+
+.allAccountts,
+.allTransactionns,
+.allTransferrs,
+.allCategorries,
+.allBudgetts,
+.allAutoPaymentts {
+  grid-column: 1 / -1;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 12px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F3F4F6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.allAccountts::after,
+.allTransactionns::after,
+.allTransferrs::after,
+.allCategorries::after,
+.allBudgetts::after,
+.allAutoPaymentts::after {
+  content: 'View all →';
+  font-size: 13px;
+  font-weight: 500;
+  color: #9CA3AF;
+  transition: all 0.2s ease;
+}
+
+.accountts-link:hover .allAccountts::after,
+.transactionns-link:hover .allTransactionns::after,
+.transferrs-link:hover .allTransferrs::after,
+.categorries-link:hover .allCategorries::after,
+.budgetts-link:hover .allBudgetts::after,
+.autoPaymentts-link:hover .allAutoPaymentts::after {
+  color: #4F46E5;
+  transform: translateX(4px);
+}
+
+.accountts-map,
+.transactionns-map,
+.transfer-map,
+.budgetts-map,
+.autoPaymentts-map {
+  background: #F9FAFB;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.2s ease;
+  border-left: 4px solid #4F46E5;
+  min-height: 80px;
+  justify-content: center;
+}
+
+.accountts-map:hover,
+.transactionns-map:hover,
+.transfer-map:hover,
+.budgetts-map:hover,
+.autoPaymentts-map:hover {
+  background: #F3F4F6;
+}
+
+.accountts-map h3:first-child,
+.transactionns-map h3:first-child,
+.transfer-map h3:first-child,
+.budgetts-map h3:first-child,
+.autoPaymentts-map h3:first-child {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountts-map h3,
+.transactionns-map h3,
+.transfer-map h3,
+.budgetts-map h3,
+.autoPaymentts-map h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6B7280;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.categorries-square {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.categorries-map {
+  background: #F9FAFB;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border: 1px solid #E5E7EB;
+  min-height: 60px;
+}
+
+.categorries-map:hover {
+  background: #F3F4F6;
+  border-color: #4F46E5;
+}
+
+.categorry-input {
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  cursor: pointer;
+  outline: none;
+  pointer-events: none;
+  font-family: inherit;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+
+.budgetts-square .categorries-map {
+  grid-column: 1 / -1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 20px;
+  align-items: stretch;
+}
+
+.budgetts-square .categorries-map .categorry-input {
+  text-align: left;
+  font-size: 15px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.budgetts-square .budgetts-map {
+  background: white;
+  border-left: 4px solid #10B981;
+  padding: 12px 16px;
+  min-height: auto;
+  margin-top: 4px;
+}
+
+.noAccountts,
+.noTransactionns,
+.noTransferrs,
+.noCategorries,
+.noBudgetts,
+.noAutoPaymentts {
+  grid-column: 1 / -1;
+  color: #9CA3AF;
+  font-size: 14px;
+  text-align: center;
+  padding: 30px 20px;
+  margin: 0;
+  font-style: italic;
+  background: #F9FAFB;
+  border-radius: 12px;
+  border: 2px dashed #E5E7EB;
+}

@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: expense-postgres
+    environment:
+      POSTGRES_DB: ExpenseTrackerDb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: expense_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ExpenseTrackerDb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./Backend
+    container_name: expense-backend
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=ExpenseTrackerDb;Username=postgres;Password=expense_password
+      - JwtSettings__Key=CHANGE_ME_TO_A_LONG_SECURE_KEY_AT_LEAST_32_CHARS
+      - EmailSettings__SmtpPassword=your-app-password
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - "7000:8080"
+
+  frontend:
+    build: ./Fronted
+    container_name: expense-frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+
+volumes:
+  postgres_data:

@@ -1,0 +1,160 @@
+
+dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    background: white;
+    margin: auto;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+
+.transaction-close-button {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.transaction-close-button:hover {
+    background: #F3F4F6;
+    color: #EF4444;
+}
+
+.transaction-dialog::before{
+    content: "Create Transaction";
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #F3F4F6;
+    padding-right: 40px;
+}
+
+dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+dialog label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7280;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+dialog input[type="number"],
+dialog input[type="text"],
+dialog input[type="date"],
+dialog select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111827;
+    background: #FAFAFA;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+dialog input:focus,
+dialog select:focus {
+    outline: none;
+    border-color: #4F46E5;
+    background: white;
+}
+
+.amount-input {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.amount-input:focus {
+    border-color: #4F46E5;
+}
+
+.description-input {
+    font-size: 14px;
+}
+
+
+.type {
+    color: #111827;
+}
+
+.category {
+    color: #111827;
+}
+
+.transaction-create-button {
+    margin-top: 8px;
+    padding: 14px 28px;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    width: 100%;
+}
+
+.transaction-create-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.transaction-create-button:active {
+    transform: translateY(0);
+}
+
+.transaction-create-button:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+
+.transaction-error {
+    position: absolute;
+    top: 70px;
+    left: 37px;
+    right: 35px;
+
+    background: #fee2e2;
+    color: #ef4444;
+    padding: 10px 14px;
+    border-radius: 8px;
+    padding-left: 150px;
+    font-size: 0.9rem;
+    border: 1px solid #fecaca;
+}

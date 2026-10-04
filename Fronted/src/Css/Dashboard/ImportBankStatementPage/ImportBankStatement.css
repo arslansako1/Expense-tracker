@@ -1,0 +1,350 @@
+
+.import-page {
+    padding: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.import-container {
+    margin-top: 24px;
+}
+
+.importBank-title{
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 8px 0 20px 0;
+    padding-bottom: 12px;
+    position: relative;
+    left: 10px;
+    border-bottom: 2px solid #F3F4F6;
+}
+
+.import-container h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 8px 0;
+}
+
+.import-subtitle {
+    color: #6B7280;
+    font-size: 14px;
+    margin: 0 0 24px 0;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #F3F4F6;
+}
+
+.import-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.import-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7280;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.import-form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 14px;
+    background: #FAFAFA;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.import-form-group select:focus {
+    outline: none;
+    border-color: #4F46E5;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+.upload-area {
+    margin-bottom: 16px;
+}
+
+.upload-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    border: 2px dashed #D1D5DB;
+    border-radius: 16px;
+    background: #FAFAFA;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.upload-label:hover {
+    border-color: #4F46E5;
+    background: #F5F3FF;
+}
+
+.upload-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.upload-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.upload-hint {
+    font-size: 12px;
+    color: #9CA3AF;
+}
+
+.import-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.btn-upload {
+    flex: 1;
+    padding: 14px 28px;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-upload:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.btn-upload:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+}
+
+.btn-reset {
+    padding: 14px 28px;
+    background: white;
+    color: #4B5563;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-reset:hover {
+    background: #F9FAFB;
+    border-color: #9CA3AF;
+}
+
+.alert {
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.alert-error {
+    background: #FEF2F2;
+    color: #991B1B;
+    border: 1px solid #FCA5A5;
+}
+
+.alert-success {
+    background: #D1FAE5;
+    color: #065F46;
+    border: 1px solid #A7F3D0;
+}
+
+.preview-section {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 2px solid #F3F4F6;
+}
+
+.preview-section h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 20px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-card.total {
+    background: #EFF6FF;
+    color: #1E40AF;
+}
+
+.stat-card.success {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.stat-card.error {
+    background: #FEF2F2;
+    color: #991B1B;
+}
+
+.stat-value {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.preview-table-container {
+    margin-bottom: 24px;
+}
+
+.preview-table-container h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 12px 0;
+}
+
+.error-heading {
+    color: #991B1B;
+}
+
+.preview-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E5E7EB;
+    font-size: 14px;
+}
+
+.preview-table thead {
+    background: #F9FAFB;
+}
+
+.preview-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 700;
+    color: #6B7280;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.preview-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.preview-table tr:last-child td {
+    border-bottom: none;
+}
+
+.preview-table tr:hover {
+    background: #F9FAFB;
+}
+
+.amount-positive {
+    color: #10B981;
+    font-weight: 700;
+}
+
+.amount-negative {
+    color: #EF4444;
+    font-weight: 700;
+}
+
+.error-table thead {
+    background: #FEF2F2;
+}
+
+.error-table th {
+    color: #991B1B;
+}
+
+.error-cell {
+    color: #DC2626;
+    font-weight: 500;
+}
+
+.mono-cell {
+    font-family: monospace;
+    font-size: 12px;
+    color: #6B7280;
+}
+
+.confirm-section {
+    margin-top: 32px;
+    padding: 24px;
+    background: #F9FAFB;
+    border-radius: 12px;
+    border: 2px solid #E5E7EB;
+    text-align: center;
+}
+
+.btn-confirm {
+    padding: 16px 32px;
+    background: lightgreen;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-confirm:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.btn-confirm:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+}
+
+.confirm-hint {
+    font-size: 13px;
+    color: #6B7280;
+    margin: 12px 0 0 0;
+}

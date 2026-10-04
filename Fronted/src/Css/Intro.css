@@ -1,0 +1,132 @@
+
+
+.intro-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #111111;
+}
+
+.intro-header {
+  text-align: center;
+}
+
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin-bottom: 32px;
+  color: #111111;
+  text-align: center;
+}
+
+.highlight-text {
+  color: #4F46E5;
+  position: relative;
+  left: 10px;
+}
+
+.intro-btns {
+  text-align: center;
+}
+
+.login-btn-intro, 
+.signup-btn-intro {
+  width: 130px;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #4F46E5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 22px;
+  margin-right: 22px;
+  position: relative; 
+  top: 0px; 
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);  
+}
+
+.login-btn-intro:hover, 
+.signup-btn-intro:hover {
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);  
+  transform: translateY(-2px);
+  background-color: #4338CA;
+}
+
+.feature-grid {
+  background: transparent; 
+  padding: 40px 0px;
+  border-radius: 12px; 
+  margin-top: 140px; 
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 24px; 
+}
+
+.feature-card1, 
+.feature-card2, 
+.feature-card3, 
+.feature-card4 {
+  flex: 1;
+  background: #FFFFFF;
+  padding: 32px 24px;
+  border-radius: 16px;
+  border: 1px solid #E5E7EB; 
+  border-left: 4px solid #4F46E5; 
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);  
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card1:hover, 
+.feature-card2:hover, 
+.feature-card3:hover, 
+.feature-card4:hover {
+  transform: translateY(-6px);
+   box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);  
+  border-color: #7C3AED;
+  border-left-color: #7C3AED; 
+}
+
+.feature-grid h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+.feature-grid p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.6; 
+  color: #4B5563; 
+}
+
+
+
+.intro-mark {
+  color: #9CA3AF;
+  font-size: 12px;
+  margin-top: 60px;
+  margin-bottom: 1px;
+  text-align: center;
+  letter-spacing: 0.5px;
+}

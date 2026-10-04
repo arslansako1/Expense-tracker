@@ -1,0 +1,157 @@
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    bottom: 70px;
+    right: 70px;
+}
+
+.signup-card {
+    background: #ffffff;
+    padding: 3.2rem 3rem;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    position: relative;
+    top: 50px;
+    box-shadow: 0 10px 40px #0000001f;
+}
+
+.sigup-card h1 {
+    font-size: 2.5rem;
+    color: #1a1a2e;
+    margin-bottom: 0.25rem;
+}
+
+.signup-card h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #666;
+    margin-bottom: 1.8rem;
+    margin-top: 15px;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1.2rem;
+    position: relative;
+    right: 13px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.8m;
+}
+
+
+.input-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #4F46E5;
+}
+
+.error-message {
+    background: #fee2e2;
+    color: #ef4444;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    border: 1px solid #fecaca;
+}
+
+.signup-btn {
+    width: 65%;
+    padding: 14px;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    top: 5px;
+}
+
+.signup-btn:hover{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);  
+  transform: translateY(-2px);
+}
+
+.signup-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.login-link {
+    margin-top: 1.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.login-link a {
+    color: #4F46E5;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+
+
+.back-btn{
+  width: 130px;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #4F46E5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  bottom: 280px;
+  right: 310px;
+
+}
+
+.back-btn:hover{
+  transform: translateY(-2px);
+
+}
+
+.signup-footer{
+    color: grey;
+    text-align: center;
+    position: relative;
+    bottom: 80px;
+    right: 3.5px;
+}
+
+.signup-mark{
+    color: black;
+    font-size: 12px;
+    margin-bottom: 1px;
+    text-align: center;
+}

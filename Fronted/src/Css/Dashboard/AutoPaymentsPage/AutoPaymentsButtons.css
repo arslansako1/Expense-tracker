@@ -1,0 +1,263 @@
+
+.autoPayment-dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    background: white;
+    margin: auto;
+}
+
+.autoPayment-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.autoPayment-dialog::before {
+    content: 'Create Auto Payment';
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #F3F4F6;
+    padding-right: 40px;
+}
+
+.editAutoPayment-dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 32px;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    background: white;
+    margin: auto;
+}
+
+.editAutoPayment-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.editAutoPayment-dialog::before {
+    content: 'Edit Auto Payment';
+    display: block;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #F3F4F6;
+    padding-right: 40px;
+}
+
+
+.deleteAutoPayment-dialog {
+    border: none;
+    border-radius: 20px;
+    padding: 36px 32px 32px 32px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+    background: white;
+    margin: auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.deleteAutoPayment-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.deleteAutoPayment-dialog::before {
+    content: '⚠️';
+    display: block;
+    font-size: 48px;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+
+.closeAutoPayment,
+.close-autoPayment {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1;
+    z-index: 1;
+}
+
+.closeAutoPayment:hover,
+.close-autoPayment:hover {
+    background: #F3F4F6;
+    color: #EF4444;
+}
+
+
+
+.autoPayment-dialog form,
+.editAutoPayment-dialog form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.autoPayment-dialog label,
+.editAutoPayment-dialog label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6B7280;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.autoPayment-dialog input,
+.autoPayment-dialog select,
+.editAutoPayment-dialog input,
+.editAutoPayment-dialog select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #E5E7EB;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111827;
+    background: #FAFAFA;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.autoPayment-dialog input:focus,
+.autoPayment-dialog select:focus,
+.editAutoPayment-dialog input:focus,
+.editAutoPayment-dialog select:focus {
+    outline: none;
+    border-color: #4F46E5;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+
+
+.amountInput {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+  
+.create-autoPayment,
+.edit-autoPayment {
+    margin-top: 8px;
+    padding: 14px 28px;
+    background: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+    display: flex;          
+    justify-content: center;
+    align-items: center;      
+    width: 100%;           
+    box-sizing: border-box;   
+}
+
+
+.create-autoPayment:hover,
+.edit-autoPayment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
+}
+
+.create-autoPayment:active,
+.edit-autoPayment:active {
+    transform: translateY(0);
+}
+
+.create-autoPayment:disabled,
+.edit-autoPayment:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.delete-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    margin: 0 0 24px 0;
+    line-height: 1.5;
+}
+
+.yes-autoPayment {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+    width: 100%;
+    font-family: inherit;
+}
+
+.yes-autoPayment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.yes-autoPayment:active {
+    transform: translateY(0);
+}
+
+.yes-autoPayment:disabled {
+    background: #D1D5DB;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+.autoPayment-error{
+    position: absolute;
+    top: 70px;
+    left: 37px;
+    right: 35px;
+
+    background: #fee2e2;
+    color: #ef4444;
+    padding: 10px 14px;
+    border-radius: 8px;
+    padding-left: 160px;
+    font-size: 0.9rem;
+    border: 1px solid #fecaca;
+}
