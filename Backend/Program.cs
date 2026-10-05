@@ -82,9 +82,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()
-        .AllowAnyMethod()
-        .AllowAnyHeader();
+        policy.WithOrigins(
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://expense-tracker-abc.vercel.app" 
+);
     });
 });
 
