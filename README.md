@@ -1,42 +1,321 @@
+# SpendWise — Personal Finance & Expense Tracker
 
-
-# SpendWise — Personal Finance & Expense Tracker:
+🚀 **Live Demo:** https://expense-tracker-lake-seven-35.vercel.app
 
 A full-stack personal finance tracker that lets users manage multiple accounts, record transactions, transfer money between accounts, set budgets, track recurring payments, and view reports — all with correct money handling, atomic transfers, concurrency control, and a complete audit trail.
 
 This is not just a CRUD app. Money-handling systems have real correctness requirements: balances must always be accurate, history must never silently change, and concurrent edits must not corrupt data.
 
+---
 
-# Backend:
-asp net,
-entityFramework,
-database: postgreSQL
+## Features
 
+### Accounts
+- Create and manage multiple accounts (Checking, Savings, Credit Card, Cash, Other)
+- Each account has a name, type, currency, and balance
+- Balance is always derivable from transaction history — never overwritten freely
+- Per-user data isolation (one user can never see another user's accounts)
 
-# Frontend:
-react
-css
+### Transactions
+- Record income and expenses with amount, date, category, description
+- **Soft delete only** — transactions are never hard-deleted; "deleting" creates a reversing entry and the original remains visible in history
+- All monetary values stored as `decimal` (see below for why)
 
+### Transfers Between Accounts
+- Move money between accounts (e.g., Checking → Savings)
+- Modeled as **two linked entries** (debit + credit) that always net to zero
+- Created **atomically** — if one side fails, neither persists
 
-# Why i used decimal and not float/double for money:
-All monetary values in this project use C#'s decimal type, not float/double, float and double are binary floating-point types,
-They store numbers as fractions, like for example:
+### Categories
+- User-defined categories for income and expenses
+- Each transaction belongs to exactly one category
+
+### Recurring Transactions
+- Define rules like "Rent, $1200, Checking, 1st of the month"
+- Projected upcoming transactions visible without pre-inserting future rows
+- Background service generates real transactions when the scheduled date arrives
+
+### Budgets & Alerts
+- Set monthly budgets per category (e.g., "$500/month on Dining")
+- Track actual spend against budget in real time
+- Background service detects overspend and generates in-app alerts
+
+### CSV Import
+- Import bank statements from CSV
+- Duplicate detection (same date + amount + description)
+- Malformed rows reported individually — the whole import never crashes
+- Preview parsed transactions before committing
+
+### Reporting
+- Monthly spend by category
+- Balance-over-time / net worth trend
+- Income vs. expense summary for a selected date range
+
+### Authentication & Authorization
+- JWT-based authentication
+- All financial data scoped to the logged-in user
+- Users can never query another user's data, even by guessing IDs
+
+### Concurrency Control
+- Optimistic concurrency on accounts via `RowVersion` token
+- Concurrent edits return a clean error instead of silently overwriting
+
+### Audit Trail
+- Every transaction change (create, edit, soft-delete) is recorded with a timestamp
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Backend | ASP.NET Core 10 |
+| ORM | Entity Framework Core |
+| Database | PostgreSQL 15 |
+| Auth | JWT + ASP.NET Identity |
+| Validation | FluentValidation |
+| Background Jobs | `IHostedService` / `BackgroundService` |
+| Frontend | React (Vite) |
+| Styling | CSS |
+| Containerization | Docker + Docker Compose |
+| Backend Hosting | Render |
+| Frontend Hosting | Vercel |
+| Database Hosting | Render Postgres |
+
+---
+
+## Architecture
+
+```
+┌──────────────────────────────────────────┐
+│  Frontend (React + Vite)                 │
+│  Deployed on Vercel                      │
+└──────────────────┬───────────────────────┘
+                   │ HTTPS (JWT in header)
+                   ▼
+┌──────────────────────────────────────────┐
+│  Backend (ASP.NET Core Web API)          │
+│  Deployed on Render (Docker container)   │
+│                                          │
+│  ├── Controllers                         │
+│  ├── Services (business logic)           │
+│  ├── Background Services                 │
+│  │   ├── BudgetAlertService              │
+│  │   └── RecurringRuleService            │
+│  └── Entity Framework Core               │
+└──────────────────┬───────────────────────┘
+                   │ Npgsql
+                   ▼
+┌──────────────────────────────────────────┐
+│  PostgreSQL 15                           │
+│  Managed on Render                       │
+└──────────────────────────────────────────┘
+```
+
+---
+
+## Why I Used `decimal` (Not `float`/`double`) For Money
+
+All monetary values use C#'s `decimal` type — never `float` or `double`.
+
+`float` and `double` are binary floating-point types. They can't represent most decimal fractions exactly, so tiny rounding errors creep in:
+
+```csharp
 double a = 0.1;
 double b = 0.2;
 double sum = a + b;
 
 Console.WriteLine(sum);  // 0.30000000000000004
+```
 
-the result should be 0.3 but double returns 0.30000000000000004, this tiny error is invisible in a single calculation,
-but over so many transactions it compounds and becomes so messy.
+The result should be `0.3`, but `double` returns `0.30000000000000004`. That tiny error is invisible in a single calculation — but over thousands of transactions, it compounds into real money being wrong.
 
+`decimal` is a base-10 type designed for financial math. It represents `0.1` and `0.2` exactly, so `0.1 + 0.2` equals `0.3` — always.
 
-# How to run:
-1- cd backend
-4- dotnet restore
-3- dotnet build
-3- dotnet run
+**Result:** Account balances are always exact. Reports never drift. Money doesn't silently lose fractions of a cent.
 
-4- cd frontend
-5- npm install
-6- npm run dev
+---
+
+## How To Run Locally
+
+### Prerequisites
+- Docker Desktop (for the database)
+- .NET SDK 10
+- Node.js 20+
+
+### 1. Start the database
+
+From the project root:
+
+```bash
+docker-compose up postgres -d
+```
+
+This starts PostgreSQL 15 on port `5433`.
+
+### 2. Run the backend
+
+```bash
+cd Backend
+dotnet restore
+dotnet build
+dotnet run
+```
+
+Backend runs on `http://localhost:7000`.
+
+### 3. Run the frontend
+
+```bash
+cd Fronted
+npm install
+npm run dev
+```
+
+Frontend runs on `http://localhost:5173` (or `3000` — check the terminal output).
+
+### 4. Open the app
+
+```
+http://localhost:5173
+```
+
+Register a user, log in, and start using the app.
+
+---
+
+## Running With Docker Compose (Full Stack)
+
+To run everything in containers:
+
+```bash
+docker-compose up --build
+```
+
+Then open `http://localhost:3000`.
+
+To stop:
+
+```bash
+docker-compose down
+```
+
+To reset the database:
+
+```bash
+docker-compose down -v
+docker-compose up -d --build
+```
+
+---
+
+## Environment Variables
+
+### Backend (`.env` or Render dashboard)
+
+| Variable | Description |
+|---|---|
+| `ConnectionStrings__DefaultConnection` | PostgreSQL connection string |
+| `JwtSettings__Key` | JWT signing key (32+ chars) |
+| `JwtSettings__Issuer` | JWT issuer |
+| `JwtSettings__Audience` | JWT audience |
+| `EmailSettings__SmtpHost` | SMTP host |
+| `EmailSettings__SmtpPort` | SMTP port |
+| `EmailSettings__SmtpUsername` | SMTP username |
+| `EmailSettings__SmtpPassword` | SMTP password / app password |
+| `EmailSettings__FromEmail` | Sender email |
+| `EmailSettings__FromName` | Sender display name |
+| `ASPNETCORE_ENVIRONMENT` | `Production` in prod, `Development` locally |
+
+### Frontend (`.env` or Vercel dashboard)
+
+| Variable | Description |
+|---|---|
+| `VITE_API_URL` | Backend API base URL |
+
+**Note:** Secrets are never committed to this repo. `appsettings.json` contains placeholders only; real values live in `appsettings.Development.json` (gitignored) or platform environment variables.
+
+---
+
+## Database Migrations
+
+Migrations are applied automatically on backend startup. To create a new migration:
+
+```bash
+cd Backend
+dotnet ef migrations add <MigrationName>
+```
+
+To apply manually:
+
+```bash
+dotnet ef database update
+```
+
+---
+
+## Project Structure
+
+```
+Expense-tracker/
+├── Backend/
+│   ├── Attributes/
+│   ├── Controllers/
+│   ├── DTOs/
+│   ├── Migrations/
+│   ├── Models/
+│   ├── Services/
+│   ├── Validators/
+│   ├── Program.cs
+│   ├── appsettings.json
+│   └── Dockerfile
+├── Fronted/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   ├── vercel.json
+│   └── Dockerfile
+├── Tests/
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+## Testing
+
+The project includes:
+
+- Unit tests for balance calculation
+- Transfer atomicity tests
+- CSV duplicate-detection tests
+
+Run tests:
+
+```bash
+cd Tests
+dotnet test
+```
+
+---
+
+## Deployment
+
+- **Backend:** Deployed on [Render](https://render.com) as a Docker container, auto-deploying from `main`
+- **Frontend:** Deployed on [Vercel](https://vercel.com), auto-deploying from `main`
+- **Database:** Render-managed PostgreSQL 15
+
+Every push to `main` triggers automatic redeployment of both services.
+
+---
+
+## Known Limitations
+
+- **In-memory cache** (if used) resets on backend restart
+- **Render free tier:** backend sleeps after 15 minutes of inactivity — first request after sleep takes 30–60 seconds
+
+---
+
+## License
+
+MIT
