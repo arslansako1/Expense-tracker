@@ -281,20 +281,36 @@ Expense-tracker/
 ```
 
 ---
-
 ## Testing
 
-The project includes:
+The project includes **50+ automated tests** covering the core financial logic and API surface.
 
-- Unit tests for balance calculation
-- Transfer atomicity tests
-- CSV duplicate-detection tests
+### Test coverage
+
+| Area | What's tested |
+|---|---|
+| **AccountController** | CRUD operations, per-user data isolation, validation, error responses |
+| **TransferController** | Atomic transfers, insufficient funds, cross-account consistency |
+| **TransactionController** | Income/expense creation, soft delete, history preservation |
+| **AccountService** | Balance calculation from transaction history, concurrency handling |
+| **TransferService** | Double-entry integrity, rollback on failure, two-sided consistency |
+| **TransactionService** | Audit trail, reversal logic, soft-delete behavior |
+
+### Why these tests matter
+
+Money-handling systems have real correctness requirements:
+
+- **Balance calculation** — proves an account's balance always equals the sum of its transaction history, across creates, edits, deletes, and transfers
+- **Transfer atomicity** — verifies both sides of a transfer persist, or neither does
+- **Soft-delete preservation** — deleted transactions remain in history; balances still compute correctly
+- **Concurrency** — optimistic concurrency returns a clean error instead of silently overwriting
+
 
 Run tests:
 
 ```bash
 cd Tests
-dotnet test
+dotnet run
 ```
 
 ---
