@@ -86,7 +86,10 @@ builder.Services.AddCors(options =>
     "http://localhost:3000",
     "http://localhost:5173",
     "https://expense-tracker-abc.vercel.app" 
-);
+)
+   .AllowAnyMethod()
+        .AllowAnyHeader()
+        .AllowCredentials();
     });
 });
 
