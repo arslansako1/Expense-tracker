@@ -80,14 +80,14 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("Frontend", policy =>
     {
         policy.WithOrigins(
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://expense-tracker-abc.vercel.app" 
-)
-   .AllowAnyMethod()
+            "http://localhost:3000",
+            "http://localhost:5173",
+            "https://expense-tracker-lake-seven-35.vercel.app"
+        )
+        .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials();
     });
@@ -135,7 +135,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseExceptionHandler();
 
-app.UseCors("AllowAll"); 
+app.UseCors("Frontend");
 
 app.UseAuthentication();
 app.UseAuthorization();
